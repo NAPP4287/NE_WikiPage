@@ -1,9 +1,13 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import "./index.css";
+import AppRouter from "./AppRouter";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App bg-slate-200">
+      <AppRouter />
+    </div>
+  );
 }
 
 export default App;
