@@ -3,10 +3,12 @@ import { IListContents } from "./interfaceWiki";
 export interface IWikiContentsProps {
   listIdx: number;
   title: string;
+  action: Function;
 }
 
 export interface IWikiListProps {
   list: Array<IListContents>;
+  action: Function;
 }
 
 export interface IWikiBtnListProps {

@@ -11,7 +11,10 @@ export const handlePageNum = (pageNum: number) => {
   const allBtnNum = Math.ceil(DWikiList.length / 5);
   const activeNext = allBtnNum / 5 > 1 && allBtnNum > pageNum;
   const activePrev = pageNum > 1;
-  const btnArray = rageArray(allBtnNum < 5 ? allBtnNum : 5, pageNum * 5);
+  const btnArray = rageArray(
+    allBtnNum < 5 ? allBtnNum : 5,
+    Math.ceil(pageNum / 5),
+  );
 
   return { next: activeNext, prev: activePrev, btnArray: btnArray };
 };
