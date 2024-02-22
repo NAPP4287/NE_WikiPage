@@ -8,3 +8,7 @@ export interface IWikiBtn {
   prev: boolean;
   btnArray: Array<number>;
 }
+
+export interface IWikiDetailContents extends IListContents {
+  contents: string;
+}

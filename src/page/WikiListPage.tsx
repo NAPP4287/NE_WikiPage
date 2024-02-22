@@ -35,8 +35,8 @@ const WikiListPage = () => {
     setWikiBtnDetail({ ...result });
   };
 
+  // page 이동 query
   const onMoveDetailPage = (id: number): void => {
-    console.log("?");
     navigate({
       pathname: "detail",
       search: createSearchParams({

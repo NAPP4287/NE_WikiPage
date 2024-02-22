@@ -4,7 +4,10 @@ const WikiContent = (props: IWikiContentsProps) => {
   const { listIdx, title, action } = props;
 
   return (
-    <li className="mt-3 w-full bg-white py-4" onClick={() => action(listIdx)}>
+    <li
+      className="mt-3 w-full cursor-pointer bg-white py-4"
+      onClick={() => action(listIdx)}
+    >
       {title}
     </li>
   );

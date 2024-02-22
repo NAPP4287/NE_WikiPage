@@ -1,5 +1,5 @@
 import { IWikiListProps } from "src/interface/interfaceProps";
-import WikiContent from "../atoms/WikiContent";
+import WikiContent from "../atoms/WikiListContent";
 
 const WikiList = (props: IWikiListProps) => {
   const { list, action } = props;
