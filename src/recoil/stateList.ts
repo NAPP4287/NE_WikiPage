@@ -6,17 +6,11 @@ import {
   IListContents,
 } from "src/interface/interfaceWiki";
 // dummyData
-import { DWikiList, DWikiDetailContents } from "src/dummyData/wikiListData";
+import { DWikiDetailContents } from "src/dummyData/wikiListData";
 
 const { persistAtom } = recoilPersist({
   key: "importantState",
   storage: sessionStorage,
-});
-
-export const wikiListState = atom<Array<IListContents>>({
-  key: "wikiListState",
-  default: [...DWikiList],
-  effects_UNSTABLE: [persistAtom],
 });
 
 export const allContentsState = atom<IWikiDetailContents[]>({

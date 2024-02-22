@@ -1,4 +1,4 @@
-import { IListContents } from "./interfaceWiki";
+import { IListContents, IWikiDetailContents } from "./interfaceWiki";
 
 export interface IWikiContentsProps {
   listIdx: number;
@@ -20,4 +20,10 @@ export interface IWikiBtnListProps {
 export interface IButtonProps {
   disabled?: boolean;
   title: string | number;
+}
+
+export interface IWikiModalProps {
+  addWiki: IWikiDetailContents;
+  setAddWiki: Function;
+  action: Function;
 }
