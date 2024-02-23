@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+# 코딩허브 과제 설명
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+프론트엔드 지원자 이나은의 과제물 입니다.
 
-## Available Scripts
+## 과제 간략 요구사항서
 
-In the project directory, you can run:
+- 메인 페이지는 위키 리스트 제목만 보여지는 목록 페이지
+- 메인 페이지는 페이지당 5개씩 리스트가 보여지며 그 이후는 페이지네이션 처리
+- 메인 페이지는 위키 리스트 추가 할 수 있는 버튼이 존재
+  - 버튼 클릭시, 위키 제목과 본문을 쓰고 저장할 수 있는 창이 존재
+- 위키 상세 페이지는 제목과 본문으로 구성된 페이지
+- 위키 상세 페이지는 본문에서 다른 위키 페이지 제목이 입력되어 있으면 자동 링크 생성되며, 해당 페이지로 이동
+- 위키 상세 페이지는 본문을 수정할 수 있는 버튼이 존재
+- 버튼 클릭시 본문을 수정하고 저장할 수 있게 구현
 
-### `npm start`
+### `메인 페이지`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- recoil persist를 사용해 리스트를 추가하고 reload 했을시에도 더미 데이터가 유지
+- 페이지네이션 함수 구현을 통하여 이전 버튼과 이후 버튼 사용 가능 여부 판단
+- 페이지당 리스트 5개씩, 페이지네이션 5개씩 구현
+- 메인 페이지에선 페이지네이션 해당 버튼 클릭시 uri query 변경 => /wikiList?page={해당 버튼 Num}
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `위키 상세 페이지`
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 리스트 클릭시 상세 페이지로 이동 => /wikiList/detail?id={해당 리스트 id}
+- recoil persist를 본문 수정 후 reload 했을시에도 더미 데이터가 유지
+- '_리스트 제목_'으로 입력시 자동 링크 걸려 이동 가능하게 구현
