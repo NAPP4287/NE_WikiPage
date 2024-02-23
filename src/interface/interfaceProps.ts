@@ -15,6 +15,8 @@ export interface IWikiBtnListProps {
   list: Array<number>;
   next: boolean;
   prev: boolean;
+  movePage: Function;
+  moveGroup: Function;
 }
 
 export interface IButtonProps {

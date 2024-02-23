@@ -30,8 +30,16 @@ const WikiModal = (props: IWikiModalProps) => {
           onChange={(e) => addWikiModal(e)}
         />
         <div>
-          <Button title={"추가하기"} action={action} className="bg-black" />
-          <Button title={"취소하기"} action={close} className={"bg-red-rose"} />
+          <Button
+            title={"추가하기"}
+            action={action}
+            className="bg-black text-white"
+          />
+          <Button
+            title={"취소하기"}
+            action={close}
+            className={"bg-red-rose text-white"}
+          />
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ const Button = (props: IButtonProps) => {
   return (
     <button
       disabled={disabled}
-      className={`mx-1 my-2 rounded font-bold text-white duration-200 ${className} ${sizeStyle()}`}
+      className={`cursor mx-1 my-2 rounded font-bold duration-200 ${className} ${sizeStyle()}`}
       onClick={action}
     >
       {title}

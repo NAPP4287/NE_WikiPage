@@ -75,13 +75,13 @@ const WikiDetailPage = () => {
           <Button
             action={() => saveContents()}
             title={"저장하기"}
-            className="bg-blue-main"
+            className="bg-blue-main text-white"
           />
         ) : (
           <Button
             action={() => setIsEdit(!isEdit)}
             title={"수정하기"}
-            className="bg-slate-600"
+            className="bg-slate-600 text-white"
           />
         )}
       </div>
@@ -145,7 +145,7 @@ const findWikiLink = (
         <div className="flex flex-wrap">
           {splitContents?.map((el, idx) => (
             <div
-              className={`pr-[4px] text-left ${findLinkIdx().includes(idx) && "cursor-pointer font-bold text-blue-main underline"}`}
+              className={`pr-[4px] text-left ${findLinkIdx().includes(idx) && "cursor font-bold text-blue-main underline"}`}
               onClick={
                 findLinkIdx().includes(idx)
                   ? () => moveAction(moveIdArr(findLinkIdx())[idx])

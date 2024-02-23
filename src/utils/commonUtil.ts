@@ -4,8 +4,12 @@ import { IWikiDetailContents } from "src/interface/interfaceWiki";
 export const handlePageDevide = (
   pageNum: number,
   allContents: Array<IWikiDetailContents>,
+  showContentsNum: number,
 ) => {
-  const currentList = allContents.slice((pageNum - 1) * 5, 5 * pageNum);
+  const currentList = allContents.slice(
+    (pageNum - 1) * showContentsNum,
+    showContentsNum * pageNum,
+  );
 
   return currentList;
 };
@@ -13,18 +17,39 @@ export const handlePageDevide = (
 export const handlePageNum = (
   pageNum: number,
   allContents: Array<IWikiDetailContents>,
+  showContentsNum: number,
+  showPageGroupNum: number,
 ) => {
-  const allBtnNum = Math.ceil(allContents.length / 5);
-  const activeNext = allBtnNum / 5 > 1 && allBtnNum > pageNum;
-  const activePrev = pageNum > 1;
-  const btnArray = rageArray(
-    allBtnNum < 5 ? allBtnNum : 5,
-    Math.ceil(pageNum / 5),
-  );
+  // 총 페이지 수
+  const allPageNum = Math.ceil(allContents.length / showContentsNum);
+  // 화면에 보여질 페이지 그룹
+  const showPageArrNum = Math.ceil(pageNum / showContentsNum);
+  // 화면에 보여질 페이지의 첫번째 페이지 번호
+  const startPageNum = (showPageArrNum - 1) * showPageGroupNum + 1;
+  // 화면에 보여질 페이지의 마지막 페이지 번호
+  const endPageNum =
+    allPageNum < showPageArrNum * showContentsNum
+      ? allPageNum
+      : showPageArrNum * showContentsNum;
 
-  return { next: activeNext, prev: activePrev, btnArray: btnArray };
-};
+  // 다음 버튼 활성화 boolean
+  const activeNext =
+    allPageNum / showContentsNum > 1 &&
+    Math.ceil(allPageNum / showPageGroupNum) > showPageArrNum;
+  // 이전 버튼 활성화 boolean
+  const activePrev = pageNum > showPageGroupNum;
 
-const rageArray = (size: number, start: number) => {
-  return [...new Array(size).keys()].map((key) => key + start);
+  let btnArr = [];
+
+  for (let i = startPageNum; i <= endPageNum; i++) {
+    btnArr.push(i);
+  }
+
+  return {
+    next: activeNext,
+    prev: activePrev,
+    btnArray: btnArr,
+    startPageNum: startPageNum,
+    endPageNum: endPageNum,
+  };
 };
