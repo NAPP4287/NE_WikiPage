@@ -16,6 +16,9 @@ module.exports = {
         400: "#94a3b8",
         600: "#475569",
       },
+      red: {
+        rose: "#f87171",
+      },
     },
     screens: {
       sm: "640px",
@@ -28,6 +31,17 @@ module.exports = {
       2: "12px",
       3: "16px",
       4: "20px",
+    },
+    extend: {
+      padding: {
+        1: "12px",
+        2: "20px",
+        3: "30px",
+        4: "40px",
+      },
+      flex: {
+        7: "7",
+      },
     },
   },
   plugins: [],

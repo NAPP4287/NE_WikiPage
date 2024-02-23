@@ -1,8 +1,9 @@
 .App {
   text-align: center;
-  padding: 60px 20px;
+  padding: 40px 20px;
   margin: 0 auto;
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
 }
 
 .max_width {

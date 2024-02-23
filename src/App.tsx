@@ -1,5 +1,6 @@
 import "./App.css";
 import "./index.css";
+import "./assets/common.css";
 import AppRouter from "./AppRouter";
 
 function App() {

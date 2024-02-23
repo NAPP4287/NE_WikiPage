@@ -1,11 +1,17 @@
 import { IButtonProps } from "src/interface/interfaceProps";
 
 const Button = (props: IButtonProps) => {
-  const { disabled, title } = props;
+  const { disabled, title, action, className, size } = props;
+
+  const sizeStyle = () => {
+    return size === "sm" ? "p-[10px]" : "px-4 py-1";
+  };
+
   return (
     <button
       disabled={disabled}
-      className={`mx-1 my-4 rounded px-4 py-1 font-bold text-white ${disabled ? "bg-slate-400" : "hover:bg-blue-dark bg-blue-main"}`}
+      className={`mx-1 my-2 rounded font-bold text-white duration-200 ${className} ${sizeStyle()}`}
+      onClick={action}
     >
       {title}
     </button>

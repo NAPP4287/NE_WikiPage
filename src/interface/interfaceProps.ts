@@ -20,10 +20,14 @@ export interface IWikiBtnListProps {
 export interface IButtonProps {
   disabled?: boolean;
   title: string | number;
+  action?: () => void;
+  className?: string;
+  size?: string;
 }
 
 export interface IWikiModalProps {
   addWiki: IWikiDetailContents;
   setAddWiki: Function;
-  action: Function;
+  action: () => void;
+  close: () => void;
 }

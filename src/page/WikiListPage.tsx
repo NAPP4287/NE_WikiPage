@@ -15,6 +15,7 @@ import {
 // recoil
 import { useRecoilState } from "recoil";
 import { allContentsState } from "src/recoil/stateList";
+import Button from "src/components/atoms/Button";
 
 const WikiListPage = () => {
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ const WikiListPage = () => {
   useEffect(() => {
     callWikiList();
     callPageNum();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allContents]);
 
   // list 5개만 불러오기
@@ -51,7 +53,7 @@ const WikiListPage = () => {
   };
 
   // page 이동 query
-  const onMoveDetailPage = (id: number): void => {
+  const onMoveDetailPage = (id: number) => {
     navigate({
       pathname: "detail",
       search: createSearchParams({
@@ -64,20 +66,37 @@ const WikiListPage = () => {
     setIsOpenModal(!isOpenModal);
   };
 
-  const handleAddWiki = (): void => {
-    const arrContents = [...allContents];
+  const handleAddWiki = () => {
+    if (checkBlankInput() === true) {
+      const arrContents = [...allContents];
 
-    arrContents.unshift({
-      ...addWiki,
-      id: allContents.length + 1,
-    });
+      arrContents.unshift({
+        ...addWiki,
+        id: allContents.length + 1,
+      });
 
-    setAllContents([...arrContents]);
+      setAllContents([...arrContents]);
+      setIsOpenModal(false);
+    } else {
+      alert(`${checkBlankInput()}을 채워주세요.`);
+    }
+  };
+
+  const checkBlankInput = () => {
+    if (addWiki.title === "") return "제목";
+    if (addWiki.contents === "") return "본문";
+    return true;
   };
 
   return (
-    <>
-      <button onClick={onClickModal}>위키 추가</button>
+    <div className="max_width w-full">
+      <div className="flex flex-row-reverse">
+        <Button
+          className="bg-black"
+          action={onClickModal}
+          title={"위키 추가"}
+        />
+      </div>
       <WikiList list={wikiList} action={onMoveDetailPage} />
       <WikiBtnList
         list={wikiBtnDetail.btnArray}
@@ -89,9 +108,10 @@ const WikiListPage = () => {
           addWiki={addWiki}
           setAddWiki={setAddWiki}
           action={handleAddWiki}
+          close={onClickModal}
         />
       )}
-    </>
+    </div>
   );
 };
 

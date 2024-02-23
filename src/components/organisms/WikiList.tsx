@@ -5,7 +5,7 @@ const WikiList = (props: IWikiListProps) => {
   const { list, action } = props;
 
   return (
-    <ul className="max_width flex flex-1 flex-col items-center">
+    <ul className="flex flex-1 flex-col items-center">
       {list.map((el, idx) => (
         <WikiContent
           action={action}

@@ -1,10 +1,7 @@
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
 // interface
-import {
-  IWikiDetailContents,
-  IListContents,
-} from "src/interface/interfaceWiki";
+import { IWikiDetailContents } from "src/interface/interfaceWiki";
 // dummyData
 import { DWikiDetailContents } from "src/dummyData/wikiListData";
 
